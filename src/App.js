@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import logo from './logo.svg'
+import { Component } from "react";
+import Menu from "./components/menu";
 import './App.css';
+import { DISHES } from "./shared/dishes";
+import { DETAILS } from './shared/details';
 
-function App() {
+class App extends Component{
+  constructor(props){
+      super(props);
+      this.state = {
+        dishes: DISHES,
+        details: DETAILS
+      };
+  }
+
+render()
+{
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <div className='container'>
+          <Menu dishes={this.state.dishes} details={this.state.details}/>
+           
+
+    </div>
+      
     </div>
   );
-}
+  };
+};
 
 export default App;
